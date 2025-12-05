@@ -10,7 +10,7 @@ from sklearn.preprocessing import LabelEncoder
 import plotly.express as px
 import tensorflow as tf
 
-data = pd.read_csv("classifcation_and_seqs_aln.csv")
+data = pd.read_csv("gs://big-dna/all_classification_and_seqs_aln.csv")
 data = data.dropna()
 X = data["sequence"]
 y = data["species"]
