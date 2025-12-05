@@ -29,9 +29,9 @@ def encodeseq(seq):
     missionary = {
         "-":0,
         "A":1,
-        "T":1,
+        "T":2,
         "C":2,
-        "G":2
+        "G":3
     }
     res = []
     for i in seq:
@@ -68,3 +68,4 @@ history = model.fit(X_train, y_train, epochs=500, validation_data=(X_test,y_test
 
 df = pd.DataFrame(history.history)['val_loss']
 px.scatter(df).show()
+print("i been running into you in my head")
