@@ -10,7 +10,7 @@ from sklearn.preprocessing import LabelEncoder
 import plotly.express as px
 import tensorflow as tf
 
-data = pd.read_csv("gs://big-dna/all_classifcation_and_seqs_aln.csv")
+data = pd.read_csv("all_classifcation_and_seqs_aln.csv")
 data = data.dropna()
 X = data["sequence"]
 y = data["species"]
@@ -48,7 +48,7 @@ print(np.unique(X_train[0]))
 model = tf.keras.Sequential([
     tf.keras.layers.InputLayer(input_shape=[(X_train.shape)[1]]),
     tf.keras.layers.Dense(11, activation='relu'),
-    tf.keras.layers.Dense(34),
+    tf.keras.layers.Dense(46),
     tf.keras.layers.Softmax()
 ])
 
