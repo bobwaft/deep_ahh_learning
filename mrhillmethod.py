@@ -1,6 +1,6 @@
-import os 
-os.environ["OMP_NUM_THREADS"] = "8"
-os.environ["TF_NUM_INTRAOP_THREADS"] = "8"
+# import os 
+# os.environ["OMP_NUM_THREADS"] = "8"
+# os.environ["TF_NUM_INTRAOP_THREADS"] = "8"
 
 import pandas as pd
 import numpy as np
