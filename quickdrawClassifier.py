@@ -20,9 +20,9 @@
 
 # %%
 #Overclock
-import os 
-os.environ["OMP_NUM_THREADS"] = "8"
-os.environ["TF_NUM_INTRAOP_THREADS"] = "8"
+# import os 
+# os.environ["OMP_NUM_THREADS"] = "8"
+# os.environ["TF_NUM_INTRAOP_THREADS"] = "8"
 
 import pandas as pd
 from sklearn.model_selection import train_test_split
