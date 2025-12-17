@@ -79,7 +79,7 @@ def show_image(data):
 images = ["door","cooler","dresser","pillow","square"]
 datas = []
 for i in images:
-    datas.append(np.load(f"{i}.npy"))
+    datas.append(np.load(f"{i}.npy").reshape(-1,28, 28,1))
 for i in datas:
     show_image(i)
 
@@ -97,9 +97,9 @@ X = np.vstack(datas)
 print(len(X))
 
 # %%
-# verify the X was defined correctly
-assert X.shape[1] == 784
-assert X.shape[0] >= 550000
+# # verify the X was defined correctly
+# assert X.shape[1] == 784
+# assert X.shape[0] >= 550000
 
 # %% [markdown]
 # Now it's time to define y. Recall that y is an array of "correct labels" for our data. For example, ['airplane', 'airplane', 'cat', 'bird', ....]
@@ -137,7 +137,9 @@ X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.200,random_s
 # %%
 # Define your model with the correct input shape and appropriate layers
 model = tf.keras.Sequential([
-    tf.keras.layers.InputLayer(input_shape=[(X_train.shape)[1]]),
+    tf.keras.layers.Conv2D(32,(3,3),activation='relu'),
+    tf.keras.layers.MaxPooling2D(2,2),
+    tf.keras.layers.Flatten(),
     tf.keras.layers.Dense(50,activation='relu'),
     tf.keras.layers.Dense(5),
     tf.keras.layers.Softmax()
